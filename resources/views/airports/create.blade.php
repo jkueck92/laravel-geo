@@ -8,71 +8,57 @@
             <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('airports.create') }}">Create airport</a></li>
         </ol>
     </nav>
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Create airport</div>
-                <form method="post" action="{{ route('airports.store') }}">
-                    @csrf
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Name" value="{{ old('name') }}">
-                                @if ($errors->has('name'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('name') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="iata" class="col-sm-2 col-form-label">IATA</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control {{ $errors->has('iata') ? 'is-invalid' : ''}}" id="iata" name="iata" placeholder="IATA" value="{{ old('iata') }}">
-                                @if ($errors->has('iata'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('iata') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="icao" class="col-sm-2 col-form-label">ICAO</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control {{ $errors->has('icao') ? 'is-invalid' : ''}}" id="icao" name="icao" placeholder="ICAO" value="{{ old('icao') }}">
-                                @if ($errors->has('icao'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('icao') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="country" class="col-sm-2 col-form-label">Country</label>
-                            <div class="col-sm-10">
-                                <select id="country" name="country" class="form-control {{ $errors->has('country') ? 'is-invalid' : ''}}">
-                                    @foreach($countries as $country)
-                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                    @endforeach
-                                </select>
-                                @if ($errors->has('country'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('country') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="form-group row">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Create airport</h3>
         </div>
+        <form class="form-horizontal" method="post" action="{{ route('airports.store') }}">
+            @csrf
+            <div class="box-body">
+                <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+                    <label for="name" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control " id="name" name="name" placeholder="Name" value="{{ old('name') }}">
+                        @if ($errors->has('name'))
+                            <span class="help-block">{{ $errors->first('name') }}</span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group {{ $errors->has('iata') ? 'has-error' : ''}}">
+                    <label for="iata" class="col-sm-2 control-label">IATA</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="iata" name="iata" placeholder="IATA" value="{{ old('iata') }}">
+                        @if ($errors->has('iata'))
+                            <span class="help-block">{{ $errors->first('iata') }}</span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group {{ $errors->has('icao') ? 'has-error' : ''}}">
+                    <label for="icao" class="col-sm-2 control-label">ICAO</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="icao" name="icao" placeholder="ICAO" value="{{ old('icao') }}">
+                        @if ($errors->has('icao'))
+                            <span class="help-block">{{ $errors->first('icao') }}</span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group {{ $errors->has('country') ? 'has-error' : ''}}">
+                    <label for="country" class="col-sm-2 control-label">Country</label>
+                    <div class="col-sm-10">
+                        <select id="country" name="country" class="form-control">
+                            @foreach($countries as $country)
+                                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            @endforeach
+                        </select>
+                        @if ($errors->has('country'))
+                            <span class="help-block">{{ $errors->first('country') }}</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </form>
     </div>
 @endsection
