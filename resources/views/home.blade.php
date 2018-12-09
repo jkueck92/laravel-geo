@@ -6,7 +6,7 @@
         <div class="col-lg-4 col-xs-6">
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53</h3>
+                    <h3>{{ $countContinents }}</h3>
                     <p>Continents</p>
                 </div>
                 <div class="icon">
@@ -18,7 +18,7 @@
         <div class="col-lg-4 col-xs-6">
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53</h3>
+                    <h3>{{ $countCountries }}</h3>
                     <p>Countries</p>
                 </div>
                 <div class="icon">
@@ -30,7 +30,7 @@
         <div class="col-lg-4 col-xs-6">
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53</h3>
+                    <h3>{{ $countAirports }}</h3>
                     <p>Airports</p>
                 </div>
                 <div class="icon">

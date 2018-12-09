@@ -18,6 +18,7 @@
         <div class="box-header with-border">
             <h3 class="box-title">Countries</h3>
             <div class="box-tools pull-right">
+                <a href="{{ route('countries.trashed') }}" type="button" class="btn btn-default btn-sm"><i class="fa fa-trash"></i></a>
                 <a href="{{ route('countries.create') }}" type="button" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
             </div>
         </div>
