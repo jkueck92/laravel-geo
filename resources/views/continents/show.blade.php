@@ -8,7 +8,6 @@
             <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('continents.show', $continent->id) }}">Show ({{ $continent->name }})</a></li>
         </ol>
     </nav>
-
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Show continent - ({{ $continent->name }})</h3>

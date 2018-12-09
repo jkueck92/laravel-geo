@@ -15,7 +15,7 @@
         <form class="form-horizontal" method="post" action="{{ route('continents.store') }}">
             @csrf
             <div class="box-body">
-                <div class="form-group {{ $errors->has('firstname') ? 'has-error' : ''}}">
+                <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
                     <label for="name" class="col-sm-2 control-label">Name</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ old('name') }}">
@@ -24,7 +24,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group {{ $errors->has('firstname') ? 'has-error' : ''}}">
+                <div class="form-group {{ $errors->has('code') ? 'has-error' : ''}}">
                     <label for="code" class="col-sm-2 control-label">Code</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="code" name="code" placeholder="Code" value="{{ old('code') }}">
