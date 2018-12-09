@@ -1,15 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h1 class="display-4">Hello, {{ Auth()->user()->firstname }} {{ Auth()->user()->lastname }}</h1>
-                <hr class="my-4">
-                <a class="btn btn-primary btn-lg" href="{{ route('continents.index') }}" role="button">Continents</a>
-                <a class="btn btn-primary btn-lg" href="{{ route('countries.index') }}" role="button">Countries</a>
-                <a class="btn btn-primary btn-lg" href="{{ route('airports.index') }}" role="button">Airports</a>
+
+    <div class="row">
+        <div class="col-lg-4 col-xs-6">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{ $countContinents }}</h3>
+                    <p>Continents</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="{{ route('continents.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
+        <div class="col-lg-4 col-xs-6">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{ $countCountries }}</h3>
+                    <p>Countries</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="{{ route('countries.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-xs-6">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{ $countAirports }}</h3>
+                    <p>Airports</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="{{ route('airports.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
     </div>
 @endsection

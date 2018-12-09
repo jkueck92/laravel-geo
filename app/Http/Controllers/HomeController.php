@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Airport;
+use App\Continent;
+use App\Country;
 use App\UserLoginActivity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')
+            ->with('countContinents', Continent::count())
+            ->with('countCountries', Country::count())
+            ->with('countAirports', Airport::count());
     }
 
     public function edit()

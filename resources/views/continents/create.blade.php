@@ -8,45 +8,35 @@
             <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('continents.create') }}">Create continent</a></li>
         </ol>
     </nav>
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Create continent</div>
-                <form method="post" action="{{ route('continents.store') }}">
-                    @csrf
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Name" value="{{ old('name') }}">
-                                @if ($errors->has('name'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('name') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="code" class="col-sm-2 col-form-label">Code</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control {{ $errors->has('code') ? 'is-invalid' : ''}}" id="code" name="code" placeholder="Code" value="{{ old('code') }}">
-                                @if ($errors->has('code'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('code') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="form-group row">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-success">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Create continent</h3>
         </div>
+        <form class="form-horizontal" method="post" action="{{ route('continents.store') }}">
+            @csrf
+            <div class="box-body">
+                <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+                    <label for="name" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ old('name') }}">
+                        @if ($errors->has('name'))
+                            <span class="help-block">{{ $errors->first('name') }}</span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group {{ $errors->has('code') ? 'has-error' : ''}}">
+                    <label for="code" class="col-sm-2 control-label">Code</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="code" name="code" placeholder="Code" value="{{ old('code') }}">
+                        @if ($errors->has('code'))
+                            <span class="help-block">{{ $errors->first('code') }}</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </form>
     </div>
 @endsection
